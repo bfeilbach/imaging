@@ -1,0 +1,56 @@
+Ideas for the future and Python modules I can leverage:
+
+    1) Introduce Cython to core methods in `CustomImage` and look for speedups
+    https://www.youtube.com/watch?v=8DuyATDaIdM
+
+    ----------------
+
+    2) Introduce a Grammar and parsing to enable robust command line invocation
+    Ex: '50 red lines'
+    Another option for this would be an NLP library, but I like the formality of a Grammar
+
+    Resources:
+    https://tomassetti.me/parsing-in-python/
+    https://realpython.com/python-keras-text-classification/
+
+    ----------------
+
+    3) Make animations/GIFs by generating multiple images
+    Ex: Use the same `RingColorGenerator` with `n` background colors and `m` foreground colors, n >> m.
+    For each frame, manually advance the pool's `start_index`. A seed can also control `random` behavior
+    across all frames.
+
+    As of now, there is no saved state of a `CustomImage`. Each invocation is fired and forgotten.
+    Save `CustomImage` attributes to a file, allow for modification, and allow for a `CustomImage`
+    to be instantiated from said file. This will significantly ease GIF generation.
+    Ex: Generate a first image with `vertical_slices` and keep generating images until
+    all slices have slid out of frame, pixel by pixel
+
+    ----------------
+
+    4) Similar to `ColorGenerator`, create `CoefficientGenerator` to yield coefficients interally in the system
+    Ex: Vary the stroke size of a function as its drawn
+    The underlying function could be linear, or have some type of growth/decay.
+
+    ----------------
+
+    5) Create `GradientGenerator` inheriting from `ColorGenerator`.
+    I can divide ranges of the RGB-plane into a specified number of colors and then
+    access those like an Iterator.
+    Ex: Functions are stored as `dict`s, so we know how many colors are needed to plot
+    a function. 
+
+    ----------------
+
+    6) Create an inheritance structure for `CustomImage`.
+    Ex: `RectangularRegionCustomImage`, `SingleVariableFunctionCustomImage` deriving from `CustomImage`
+    This will ensure there's no unnecessary data structures if a user knows what kind of image they wish to generate
+
+    ----------------
+
+    7) Introduce `TKinter` to expand from command line invocation
+    Ex: Using the mouse to draw `dots` on a Window that represents a `CustomImage`
+
+    ----------------
+
+    8) Use `yield` to make `ColorGenerator` and its derivatives true to their name
