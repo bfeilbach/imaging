@@ -17,7 +17,7 @@ Generated via `demo_6.py`:
 
 ## Installation
 
-1) Clone the repository
+1) Clone the repository: `git clone git@github.com:bfeilbach/imaging.git`
 
 2) Run `pipenv install` in this directory to install and resolve dependencies in a virtual environment
 
